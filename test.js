@@ -4,21 +4,9 @@
     let exerciseTWo = await numSum(3, 6);
     let exerciseThree = await numHigher([7,2,5,9,8,3], 2);
     let exerciseFour = await delDuplicates([2,7,4,5,4,5,4,3,6,2,3,4]);
-    let exerciseFive = await balancer([2,7,4,5,4,5,4,3,6,2,3,4]);
+    let exerciseFive = await balancer("((((()))))[][][][][]");
 
-    console.log(exerciseFive);
 })(); 
-
-
-async function balancer (obj) {
-    let notDupli = [];
-
-    obj.map(x => {
-        !notDupli.includes(x) ? notDupli.push(x) : null;
-    });
-
-    return notDupli;
-};
 
 /** 
   * 1. Escribir una función que reciba un arreglo de números y obtenga el subarreglo más
@@ -83,4 +71,29 @@ async function delDuplicates (obj) {
     });
 
     return notDupli;
+};
+
+/** 
+ * 5. Dada una cadena de paréntesis y corchetes escribe una función que regresa si la
+   cadena está bien balanceada, es decir, por cada paréntesis o corchete que abre hay uno
+   al mismo nivel que que cierra. Por ejemplo si recibe ‘([])’ o ‘[()[]]’ tiene que regresar true y
+   si recibe ‘([)]’ tiene que regresar false.
+*/
+async function balancer (strOp) {    
+    let stack = [];
+    let mapOp = {'(' : ')','[' : ']'};
+
+    for (let i = 0; i < strOp.length; i++) {
+        let item = strOp[i];
+
+        if (item === '(' || item === '[' ) {
+            stack.push(item);
+        } else {
+            let last = stack.pop();            
+            if (item !== mapOp[last]) {return false};
+        }
+    }
+
+    if (stack.length !== 0) {return false};
+    return true;
 };
