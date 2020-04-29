@@ -21,3 +21,8 @@ Poco complicado
 4.- Para este ajercicio realice una iteracion y validaba si cada item estaba dentro de un nuevo array y solo sino se encontraba lo agregaba, posteriormente retorne el nuevo array
 
 Poco complicado
+
+5.- En este ejercicio se realizo un for a el str que contiene los corchetes y parentesis. si el item es de abertura
+se agrega en un array nuevo, si el item es de cierre se elimina del array (si el ultimo lemento del array elimina es diferente al item retornara false). Si al final el array queda vacio, se entendera que todos los items cerraron bien.
+
+Se me hizo algo complicado
